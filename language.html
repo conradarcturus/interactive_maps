@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+
+<!--
+    Made by Alexander Conrad Nied
+    Adapted from code from...
+  Congle Zhang and Conrad Nied's CSE512 Assignment 3
+  Designed 2014-01-29 to 2014-02-10
+-->
+
+<head>
+    <title> Interactive Language Family Map </title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" type='text/css' href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type='text/css' href="lib/bootstrap-3.3.6-dist/css/bootstrap-theme.css">
+    
+    <!-- External Javascript -->
+    <script src="lib/jquery/jquery-1.11.3.min.js"></script>
+    <script src="lib/d3/d3.v3.min.js" charset="utf-8"></script>
+    <script src="lib/d3/d3-hierarchy.v1.min.js" charset="utf-8"></script>
+    <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type='text/css' href="src/style.css">
+
+    <!-- Javascript -->
+    <script src="src/util.js" charset="utf-8"></script>
+    <script src="src/language.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class='container'>
+        <div class="row">
+            <h2>Language Family Map</h2>
+            <h4>by A. Conrad Nied</h4>
+            <p>Scroll over countries/language to highlight the specific language.<br/>
+                Click on the language family wheel to zoom in on a subfamily.</p>
+        </div>
+        <div class="row">
+            <div id='wheel-container' class="col-sm-4"></div>
+            <div id='map-container' class="col-sm-8"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+Mothertongue,,African,Borean,Paleo-Melanesian,Amerindian,Creole,,0,Mothertongue     
+African,Mothertongue,Niger-Congo,Nilo-Saharan,Khoisan,,,,1,African     
+Niger-Congo,African,Macro-Niger,Bantu,,,,,2,Niger-Congo African Mothertongue   
+Macro-Niger,Niger-Congo,,,,,,,3,Macro-Niger Niger-Congo African Mothertongue   
+Bantu,Niger-Congo,,,,,,,3,Bantu Niger-Congo African Mothertongue   
+Nilo-Saharan,African,,,,,,,2,Nilo-Saharan African Mothertongue   
+Khoisan,African,,,,,,,2,Khoisan African Mothertongue   
+Amerindian,Mothertongue,Algic,Na-Dene,Meso-American,South-American,,,1,Amerindian Mothertongue    
+Algic,Amerindian,,,,,,,2,Algic Amerindian Mothertongue   
+Na-Dene,Amerindian,,,,,,,2,Na-Dene Amerindian Mothertongue   
+Meso-American,Amerindian,Nahuatl,Mayan,,,,,2,Meso-American Amerindian Mothertongue   
+Nahuatl,Meso-American,,,,,,,3,Nahuatl Meso-American Amerindian Mothertongue  
+Mayan,Meso-American,,,,,,,3,Mayan Meso-American Amerindian Mothertongue  
+South-American,Amerindian,Quechuan,Guarani,Aymara,Mapudungun,,,2,South-American Amerindian Mothertongue   
+Quechuan,South-American,,,,,,,3,Quechuan South-American Amerindian Mothertongue   
+Guarani,South-American,,,,,,,3,Guarani South-American Amerindian Mothertongue   
+Aymara,South-American,,,,,,,3,Aymara South-American Amerindian Mothertongue   
+Mapudungun,South-American,,,,,,,3,Mapudungun South-American Amerindian Mothertongue   
+Borean,Mothertongue,Afroasiatic,Indo-European,Ural-Altaic,Sino-Caucasian,Austric,,1,Borean Mothertongue    
+Afroasiatic,Borean,Semitic,Berber,Chadic,Cushitic,,,2,Afroasiatic Borean Mothertongue   
+Semitic,Afroasiatic,Arabic,Hebrew,,,,,3,Semitic Afroasiatic Borean Mothertongue  
+Arabic,Semitic,,,,,,,4,Arabic Semitic Afroasiatic Borean Mothertongue
+Hebrew,Semitic,,,,,,,4,Hebrew Semitic Afroasiatic Borean Mothertongue
+Berber,Afroasiatic,,,,,,,3,Berber Afroasiatic Borean Mothertongue  
+Chadic,Afroasiatic,,,,,,,3,Chadic Afroasiatic Borean Mothertongue  
+Cushitic,Afroasiatic,,,,,,,3,Cushitic Afroasiatic Borean Mothertongue  
+Indo-European,Borean,Centum,Satem,,,,,2,Indo-European Borean Mothertongue   
+Centum,Indo-European,Greek,Romance,Germanic,Celtic,,,3,Centum Indo-European Borean Mothertongue  
+Greek,Centum,,,,,,,4,Greek Centum Indo-European Borean Mothertongue 
+Romance,Centum,Italian,French,Spanish,Portuguese,Romanian,,4,Romance Centum Indo-European Borean Mothertongue 
+Italian,Romance,,,,,,,5,Italian Romance Centum Indo-European Borean Mothertongue
+French,Romance,,,,,,,5,French Romance Centum Indo-European Borean Mothertongue
+Spanish,Romance,,,,,,,5,Spanish Romance Centum Indo-European Borean Mothertongue
+Portuguese,Romance,,,,,,,5,Portuguese Romance Centum Indo-European Borean Mothertongue
+Romanian,Romance,,,,,,,5,Romanian Romance Centum Indo-European Borean Mothertongue
+Germanic,Centum,German,Dutch,English,Scandinavian,,,4,Germanic Centum Indo-European Borean Mothertongue 
+German,Germanic,,,,,,,5,German Germanic Centum Indo-European Borean Mothertongue
+Dutch,Germanic,,,,,,,5,Dutch Germanic Centum Indo-European Borean Mothertongue
+English,Germanic,,,,,,,5,English Germanic Centum Indo-European Borean Mothertongue
+Scandinavian,Germanic,,,,,,,5,Scandinavian Germanic Centum Indo-European Borean Mothertongue
+Celtic,Centum,,,,,,,4,Celtic Centum Indo-European Borean Mothertongue 
+Satem,Indo-European,Iranian,Indo-Aryan,Slavic,Baltic,Albanian,Armenian,3,Satem Indo-European Borean Mothertongue  
+Iranian,Satem,,,,,,,4,Iranian Satem Indo-European Borean Mothertongue 
+Indo-Aryan,Satem,Central-Indoaryan,Northern-Indoaryan,NW-Indoaryan,Eastern-Indoaryan,Southern-Indoaryan,Insular-Indoaryan,4,Indo-Aryan Satem Indo-European Borean Mothertongue 
+Central-Indoaryan,Indo-Aryan,,,,,,,5,Central-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+North-Indoaryan,Indo-Aryan,,,,,,,5,North-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+West-Indoaryan,Indo-Aryan,,,,,,,5,West-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+East-Indoaryan,Indo-Aryan,,,,,,,5,East-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+South-Indoaryan,Indo-Aryan,,,,,,,5,South-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+Insular-Indoaryan,Indo-Aryan,,,,,,,5,Insular-Indoaryan Indo-Aryan Satem Indo-European Borean Mothertongue 
+Slavic,Satem,East-Slavic,South-Slavic,West-Slavic,,,,4,Slavic Satem Indo-European Borean Mothertongue 
+East-Slavic,Slavic,,,,,,,5,East-Slavic Slavic Satem Indo-European Borean Mothertongue 
+South-Slavic,Slavic,,,,,,,5,South-Slavic Slavic Satem Indo-European Borean Mothertongue 
+West-Slavic,Slavic,,,,,,,5,West-Slavic Slavic Satem Indo-European Borean Mothertongue 
+Baltic,Satem,,,,,,,4,Baltic Satem Indo-European Borean Mothertongue 
+Albanian,Satem,,,,,,,4,Albanian Satem Indo-European Borean Mothertongue 
+Armenian,Satem,,,,,,,4,Armenian Satem Indo-European Borean Mothertongue 
+Ural-Altaic,Borean,Altaic,Uralic,Paleo-Siberian,Dravidian,,,2,Ural-Altaic Borean Mothertongue   
+Altaic,Ural-Altaic,Turkic,Mongolic,Tungusic,Korean,Japonic,,3,Altaic Ural-Altaic Borean Mothertongue  
+Turkic,Altaic,Oghuz,Kipchak,Karluk,Siberian-Turkic,,,4,Turkic Altaic Ural-Altaic Borean Mothertongue 
+Oghuz,Turkic,,,,,,,5,Oghuz Turkic Altaic Ural-Altaic Borean Mothertongue 
+Kipchak,Turkic,,,,,,,5,Kipchak Turkic Altaic Ural-Altaic Borean Mothertongue 
+Karluk,Turkic,,,,,,,5,Karluk Turkic Altaic Ural-Altaic Borean Mothertongue 
+Siberian-Turkic,Turkic,,,,,,,5,Siberian-Turkic Turkic Altaic Ural-Altaic Borean Mothertongue 
+Mongolic,Altaic,,,,,,,4,Mongolic Altaic Ural-Altaic Borean Mothertongue 
+Tungusic,Altaic,,,,,,,4,Tungusic Altaic Ural-Altaic Borean Mothertongue 
+Korean,Altaic,,,,,,,4,Korean Altaic Ural-Altaic Borean Mothertongue 
+Japonic,Altaic,,,,,,,4,Japonic Altaic Ural-Altaic Borean Mothertongue 
+Uralic,Ural-Altaic,Finnic,Hungarian,Samoyedic,,,,3,Uralic Ural-Altaic Borean Mothertongue  
+Finnic,Uralic,,,,,,,4,Finnic Uralic Ural-Altaic Borean Mothertongue  
+Hungarian,Uralic,,,,,,,4,Hungarian Uralic Ural-Altaic Borean Mothertongue  
+Samoyedic,Uralic,,,,,,,4,Samoyedic Uralic Ural-Altaic Borean Mothertongue  
+Paleo-Siberian,Ural-Altaic,Chukotian,Eskimo-Aleutian,,,,,3,Paleo-Siberian Ural-Altaic Borean Mothertongue  
+Chukotian,Paleo-Siberian,,,,,,,4,Chukotian Paleo-Siberian Ural-Altaic Borean Mothertongue 
+Eskimo-Aleutian,Paleo-Siberian,,,,,,,4,Eskimo-Aleutian Paleo-Siberian Ural-Altaic Borean Mothertongue 
+Dravidian,Ural-Altaic,,,,,,,3,Dravidian Ural-Altaic Borean Mothertongue  
+Sino-Caucasian,Borean,Sino-Tibetan,Caucasian,Basque,,,,2,Sino-Caucasian Borean Mothertongue   
+Sino-Tibetan,Sino-Caucasian,Sinitic,Tibeto-Burman,,,,,3,Sino-Tibetan Sino-Caucasian Borean Mothertongue  
+Sinitic,Sino-Tibetan,Mandarin,South-Chinese,,,,,4,Sinitic Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+Mandarin,Sinitic,,,,,,,5,Mandarin Sinitic Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+South-Chinese,Sinitic,,,,,,,5,South-Chinese Sinitic Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+Tibeto-Burman,Sino-Tibetan,Tibetan,Burmese,,,,,4,Tibeto-Burman Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+Tibetan,Tibeto-Burman,,,,,,,5,Tibetan Tibeto-Burman Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+Burmese,Tibeto-Burman,,,,,,,5,Burmese Tibeto-Burman Sino-Tibetan Sino-Caucasian Borean Mothertongue 
+Caucasian,Sino-Caucasian,,,,,,,3,Caucasian Sino-Caucasian Borean Mothertongue  
+Basque,Sino-Caucasian,,,,,,,3,Basque Sino-Caucasian Borean Mothertongue  
+Austric,Borean,Tai-Kadai,Austro-Asiatic,Austronesian,,,,2,Austric Borean Mothertongue   
+Tai-Kadai,Austric,,,,,,,3,Tai-Kadai Austric Borean Mothertongue  
+Austro-Asiatic,Austric,,,,,,,3,Austro-Asiatic Austric Borean Mothertongue  
+Austronesian,Austric,Malayo-Polynesian,Oceanic,,,,,3,Austronesian Austric Borean Mothertongue  
+Malayo-Polynesian,Austronesian,,,,,,,4,Malayo-Polynesian Austronesian Austric Borean Mothertongue  
+Oceanic,Austronesian,,,,,,,4,Oceanic Austronesian Austric Borean Mothertongue  
+Paleo-Melanesian,Mothertongue,Papuan,Aboriginal,Melanesian,,,,1,Paleo-Melanesian Mothertongue    
+Aboriginal,Paleo-Melanesian,,,,,,,2,Aboriginal Paleo-Melanesian Mothertongue   
+Papuan,Paleo-Melanesian,,,,,,,2,Papuan Paleo-Melanesian Mothertongue   
+Melanesian,Paleo-Melanesian,,,,,,,2,Melanesian Paleo-Melanesian Mothertongue   
+Creole,Mothertongue,,,,,,,1,Creole Mothertongue

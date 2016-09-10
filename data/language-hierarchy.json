@@ -1,0 +1,125 @@
+{
+  "Paleo-Melanesian": {
+    "Papuan": {},
+    "Melanesian": {},
+    "Aboriginal": {}
+  },
+  "African": {
+    "Khoisan": {},
+    "Nilo-Saharan": {},
+    "Niger-Congo": {
+      "Bantu": {},
+      "Macro-Niger": {}
+    }
+  },
+  "Amerindian": {
+    "South-American": {
+      "Mapudungun": {},
+      "Guarani": {},
+      "Aymara": {},
+      "Quechuan": {}
+    },
+    "Meso-American": {
+      "Mayan": {},
+      "Nahuatl": {}
+    },
+    "Algic": {},
+    "Na-Dene": {}
+  },
+  "Borean": {
+    "Sino-Caucasian": {
+      "Caucasian": {},
+      "Basque": {},
+      "Sino-Tibetan": {
+        "Sinitic": {
+          "South-Chinese": {},
+          "Mandarin": {}
+        },
+        "Tibeto-Burman": {
+          "Tibetan": {},
+          "Burmese": {}
+        }
+      }
+    },
+    "Ural-Altaic": {
+      "Dravidian": {},
+      "Paleo-Siberian": {
+        "Eskimo-Aleutian": {},
+        "Chukotian": {}
+      },
+      "Altaic": {
+        "Korean": {},
+        "Japonic": {},
+        "Turkic": {
+          "Oghuz": {},
+          "Karluk": {},
+          "Kipchak": {},
+          "Siberian-Turkic": {}
+        },
+        "Mongolic": {},
+        "Tungusic": {}
+      },
+      "Uralic": {
+        "Samoyedic": {},
+        "Finnic": {},
+        "Hungarian": {}
+      }
+    },
+    "Indo-European": {
+      "Centum": {
+        "Greek": {},
+        "Celtic": {},
+        "Germanic": {
+          "Scandinavian": {},
+          "German": {},
+          "Dutch": {},
+          "English": {}
+        },
+        "Romance": {
+          "French": {},
+          "Italian": {},
+          "Spanish": {},
+          "Portuguese": {},
+          "Romanian": {}
+        }
+      },
+      "Satem": {
+        "Slavic": {
+          "West-Slavic": {},
+          "South-Slavic": {},
+          "East-Slavic": {}
+        },
+        "Baltic": {},
+        "Albanian": {},
+        "Armenian": {},
+        "Iranian": {},
+        "Indo-Aryan": {
+          "South-Indoaryan": {},
+          "Central-Indoaryan": {},
+          "North-Indoaryan": {},
+          "West-Indoaryan": {},
+          "Insular-Indoaryan": {},
+          "East-Indoaryan": {}
+        }
+      }
+    },
+    "Afroasiatic": {
+      "Berber": {},
+      "Chadic": {},
+      "Cushitic": {},
+      "Semitic": {
+        "Arabic": {},
+        "Hebrew": {}
+      }
+    },
+    "Austric": {
+      "Austronesian": {
+        "Oceanic": {},
+        "Malayo-Polynesian": {}
+      },
+      "Tai-Kadai": {},
+      "Austro-Asiatic": {}
+    }
+  },
+  "Creole": {}
+}

@@ -1,0 +1,46 @@
+path {
+    stroke: #000;
+    stroke-width: 1.5;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: fixed;
+    background: white;
+    border-width: 1px;
+    border-style: ridge;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 20;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+}
+.tooltip td, .tooltip th {
+    padding: 5px 5px 0px 5px;
+    max-width: 300px;
+}
+
+
+.wheel-wedge {
+    stroke-width: 0.5;
+    cursor: zoom-in;
+}
+.wheel-label {
+    font-size: 0.5em;
+    /*font-weight: bold;*/
+    alignment-baseline: middle;
+}
+/*.wheel-label-bright {
+    fill: white;
+}*/
+.wheel-label-word1 {
+    alignment-baseline: after-edge;
+}
+.wheel-label-word2 {
+    alignment-baseline: before-edge;
+}
+.wheel-label-back {
+    stroke: white;
+    stroke-width: 3px;
+}

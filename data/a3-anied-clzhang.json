@@ -1,0 +1,131 @@
+[
+
+{"name":"Paleo-Melanesian","parent":"Mothertongue","children":[
+	{"name":"Papuan","parent":"Paleo-Melanesian","children":[]},
+	{"name":"Melanesian","parent":"Paleo-Melanesian","children":[]},
+	{"name":"Aboriginal","parent":"Paleo-Melanesian","children":[]}
+	]},
+
+{"name":"African","parent":"Mothertongue","children":[
+	{"name":"Khoisan","parent":"African","children":[]},
+	{"name":"Nilo-Saharan","parent":"African","children":[]},
+	{"name":"Niger-Congo","parent":"African","children":[
+		{"name":"Bantu","parent":"Niger-Congo","children":[]},
+		{"name":"Macro-Niger","parent":"Niger-Congo","children":[]}
+		]}
+	]},
+
+{"name":"Amerindian","parent":"Mothertongue","children":[
+	{"name":"South-American","parent":"Amerindian","children":[
+		{"name":"Mapudungun","parent":"South-American","children":[]},
+		{"name":"Guarani","parent":"South-American","children":[]},
+		{"name":"Aymara","parent":"South-American","children":[]},
+		{"name":"Quechuan","parent":"South-American","children":[]}
+		]},
+	{"name":"Meso-American","parent":"Amerindian","children":[
+		{"name":"Mayan","parent":"Meso-American","children":[]},
+		{"name":"Nahuatl","parent":"Meso-American","children":[]}
+		]},
+	{"name":"Algic","parent":"Amerindian","children":[]},
+	{"name":"Na-Dene","parent":"Amerindian","children":[]}
+	]},
+
+{"name":"Borean","parent":"Mothertongue","children":[
+	{"name":"Sino-Caucasian","parent":"Borean","children":[
+		{"name":"Caucasian","parent":"Sino-Caucasian","children":[]},
+		{"name":"Basque","parent":"Sino-Caucasian","children":[]},
+		{"name":"Sino-Tibetan","parent":"Sino-Caucasian","children":[
+			{"name":"Sinitic","parent":"Sino-Tibetan","children":[
+				{"name":"South-Chinese","parent":"Sinitic","children":[]},
+				{"name":"Mandarin","parent":"Sinitic","children":[]}
+				]},
+			{"name":"Tibeto-Burman","parent":"Sino-Tibetan","children":[
+				{"name":"Tibetan","parent":"Tibeto-Burman","children":[]},
+				{"name":"Burmese","parent":"Tibeto-Burman","children":[]}
+				]}
+			]}
+		]},
+	{"name":"Ural-Altaic","parent":"Borean","children":[
+		{"name":"Dravidian","parent":"Ural-Altaic","children":[]},
+		{"name":"Paleo-Siberian","parent":"Ural-Altaic","children":[
+			{"name":"Eskimo-Aleutian","parent":"Paleo-Siberian","children":[]},
+			{"name":"Chukotian","parent":"Paleo-Siberian","children":[]}
+			]},
+		{"name":"Altaic","parent":"Ural-Altaic","children":[
+			{"name":"Korean","parent":"Altaic","children":[]},
+			{"name":"Japonic","parent":"Altaic","children":[]},
+			{"name":"Turkic","parent":"Altaic","children":[
+				{"name":"Oghuz","parent":"Turkic","children":[]},
+				{"name":"Karluk","parent":"Turkic","children":[]},
+				{"name":"Kipchak","parent":"Turkic","children":[]},
+				{"name":"Siberian-Turkic","parent":"Turkic","children":[]}
+				]},
+			{"name":"Mongolic","parent":"Altaic","children":[]},
+			{"name":"Tungusic","parent":"Altaic","children":[]}
+			]},
+		{"name":"Uralic","parent":"Ural-Altaic","children":[
+			{"name":"Samoyedic","parent":"Uralic","children":[]},
+			{"name":"Finnic","parent":"Uralic","children":[]},
+			{"name":"Hungarian","parent":"Uralic","children":[]}
+			]}
+		]},
+	{"name":"Indo-European","parent":"Borean","children":[
+		{"name":"Centum","parent":"Indo-European","children":[
+			{"name":"Greek","parent":"Centum","children":[]},
+			{"name":"Celtic","parent":"Centum","children":[]},
+			{"name":"Germanic","parent":"Centum","children":[
+				{"name":"Scandinavian","parent":"Germanic","children":[]},
+				{"name":"German","parent":"Germanic","children":[]},
+				{"name":"Dutch","parent":"Germanic","children":[]},
+				{"name":"English","parent":"Germanic","children":[]}
+				]},
+			{"name":"Romance","parent":"Centum","children":[
+				{"name":"French","parent":"Romance","children":[]},
+				{"name":"Italian","parent":"Romance","children":[]},
+				{"name":"Spanish","parent":"Romance","children":[]},
+				{"name":"Portuguese","parent":"Romance","children":[]},
+				{"name":"Romanian","parent":"Romance","children":[]}
+				]}
+			]},
+		{"name":"Satem","parent":"Indo-European","children":[
+			{"name":"Slavic","parent":"Satem","children":[
+				{"name":"West-Slavic","parent":"Slavic","children":[]},
+				{"name":"South-Slavic","parent":"Slavic","children":[]},
+				{"name":"East-Slavic","parent":"Slavic","children":[]}
+				]},
+			{"name":"Baltic","parent":"Satem","children":[]},
+			{"name":"Albanian","parent":"Satem","children":[]},
+			{"name":"Armenian","parent":"Satem","children":[]},
+			{"name":"Iranian","parent":"Satem","children":[]},
+			{"name":"Indo-Aryan","parent":"Satem","children":[
+				{"name":"South-Indoaryan","parent":"Indo-Aryan","children":[]},
+				{"name":"Central-Indoaryan","parent":"Indo-Aryan","children":[]},
+				{"name":"North-Indoaryan","parent":"Indo-Aryan","children":[]},
+				{"name":"West-Indoaryan","parent":"Indo-Aryan","children":[]},
+				{"name":"Insular-Indoaryan","parent":"Indo-Aryan","children":[]},
+				{"name":"East-Indoaryan","parent":"Indo-Aryan","children":[]}
+				]}
+			]}
+		]},
+	{"name":"Afroasiatic","parent":"Borean","children":[
+		{"name":"Berber","parent":"Afroasiatic","children":[]},
+		{"name":"Chadic","parent":"Afroasiatic","children":[]},
+		{"name":"Cushitic","parent":"Afroasiatic","children":[]},
+		{"name":"Semitic","parent":"Afroasiatic","children":[
+			{"name":"Arabic","parent":"Semitic","children":[]},
+			{"name":"Hebrew","parent":"Semitic","children":[]}
+			]}
+		]},
+	{"name":"Austric","parent":"Borean","children":[
+		{"name":"Austronesian","parent":"Austric","children":[
+			{"name":"Oceanic","parent":"Austronesian","children":[]},
+			{"name":"Malayo-Polynesian","parent":"Austronesian","children":[]}
+			]},
+		{"name":"Tai-Kadai","parent":"Austric","children":[]},
+		{"name":"Austro-Asiatic","parent":"Austric","children":[]}
+		]}
+	]},
+
+{"name":"Creole","parent":"Mothertongue","children":[]}
+
+]
