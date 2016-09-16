@@ -58,7 +58,7 @@ Wheel.prototype = {
             .attr("fill-rule", "evenodd")
             .attr('class', d => 'wheel-wedge')
             .style("fill", d => d.color)
-            .on("mouseover", this.App.fillColor.bind(this.App, 'Lineage'))
+            .on("mouseover", this.App.fillColor.bind(this.App, 'Focus'))
             .on("mouseout", this.App.fillColor.bind(this.App, 'Wheel-Subtree'))
             .on("click", this.click.bind(this));
 
@@ -229,9 +229,9 @@ InteractiveLanguageMap.prototype = {
                                     i * 3.14 % 0.7 + 0.3,  // Saturation
                                     i * 3.14 % 0.35 / 2 + 0.4); // Lightness
 
-                // // correct for darkness
-                // node.color = d3.lab(node.color);
-                // node.color.l = i * 3.14 % 0.35 / 0.35 * 40 + 40;
+                // correct for darkness
+                node.color = d3.lab(node.color);
+                node.color.l = node.color.l * 0.8 + 20;
             });
         } else if(this.COLOR_SCHEME == 'hue-lab') {
             leaves.forEach((node, i) => {
@@ -271,7 +271,7 @@ InteractiveLanguageMap.prototype = {
                     });
                 this.tooltip.on();
 
-                this.fillColor('Lineage', node);
+                this.fillColor('Focus', node);
             }.bind(this))
             .on("mousemove", d => this.tooltip.move(d3.event.x, d3.event.y))
             .on('mouseout', function (node) {
@@ -316,8 +316,10 @@ InteractiveLanguageMap.prototype = {
         // a = node, b = basis
         if(type == 'Node') {
             return (a, b) => a.name == b.name;
-        } else if(type == 'Lineage') {
+        } else if(type == 'Ancestors') {
             return (a, b) => a.name == b.name || b.ancestors.includes(a.name);
+        } else if(type == 'Lineage') {
+            return (a, b) => a.name == b.name || b.ancestors.includes(a.name) || a.ancestors.includes(b.name);
         } else if(type == 'Subtree') {
             return (a, b) => a.name == b.name || a.ancestors.includes(b.name);
         } else if(type == 'Wheel-Subtree') {
@@ -328,16 +330,31 @@ InteractiveLanguageMap.prototype = {
         }
     },
     fillColor: function(type, basis) {
-        var cmp = this.ancestryComparison(type);
-        var isDescendent = this.ancestryComparison('Subtree');
+        var wheel_cmp, geo_cmp;
+        if(type == 'Focus') {
+            wheel_cmp = (a, b) => a.name == b.name // Self
+                    || b.ancestors.includes(a.name) // Ancestor
+                    || a.ancestors.includes(b.name); // Descendent
+            geo_cmp = (a, b) => a.name == b.name // Self
+                    || a.ancestors.includes(b.name); // Descendent
+        } else { // Visible on Wheel / Selected Family
+            wheel_cmp = (a, b) => a.name == this.wheel.root.name // Self
+                    || a.ancestors.includes(this.wheel.root.name); // Descendent
+            geo_cmp = (a, b) => a.name == this.wheel.root.name // Self
+                    || a.ancestors.includes(this.wheel.root.name); // Descendent
+        }
+        
+//        var cmp = this.ancestryComparison(type);
+//        var isAncestor = this.ancestryComparison('Ancestors');
+//        var isDescendent = this.ancestryComparison('Subtree');
         // TODO fix stale colors, cancel in-progress transitions
         this.wheel.wedges.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
-            .style('fill-opacity', node => cmp(node, basis) || isDescendent(node, basis) ? 1.0 : 0.1);
+            .style('fill-opacity', node => wheel_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
         this.geo_zones.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
-            .style('fill-opacity', node => cmp(node, basis) || isDescendent(node, basis) ? 1.0 : 0.1);
+            .style('fill-opacity', node => geo_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
     },
 };
@@ -346,103 +363,103 @@ function initialize() {
     // Load Interactive Language Map App
     App = new InteractiveLanguageMap();
     App.init();
-
-    var resolution = 2;
-    var matrix = d3.range(-100, 100, resolution).map(function (x) {
-        return d3.range(-100, 100, resolution).map(function(y) {
-            return {
-                x: x,
-                y: y,
-                la: d3.lab((x+100)/2, y, 50),
-                lb: d3.lab((x+100)/2, 50, y),
-                ab: d3.lab(50, x, y),
-            };
-        });
-    });
-
-    // Lab Color
-    var svg = d3.select('body').append('svg')
-        .attr({
-            width: 650,
-            height: 200
-        });
-    matrix.forEach(function(row) {
-        row.forEach(function(cell) {
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 110,
-                    y: cell.y + 100,
-                    fill: cell.la
-                })
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 330,
-                    y: cell.y + 100,
-                    fill: cell.lb
-                })
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 550,
-                    y: cell.y + 100,
-                    fill: cell.ab
-                })
-
-        });
-    });
-
-    // Hue Saturation Lightness
-    var matrix = d3.range(-100, 100, resolution).map(function (x) {
-        return d3.range(-100, 100, resolution).map(function(y) {
-            return {
-                x: x,
-                y: y,
-                la: d3.hsl((x+100)/200 * 360, (y+100)/200, .5),
-                lb: d3.hsl((x+100)/200 * 360, .5, (y+100)/200),
-                ab: d3.hsl(0, (x+100)/200, (y+100)/200),
-            };
-        });
-    });
-
-    var svg = d3.select('body').append('svg')
-        .attr({
-            width: 650,
-            height: 200
-        });
-    matrix.forEach(function(row) {
-        row.forEach(function(cell) {
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 110,
-                    y: cell.y + 100,
-                    fill: cell.la
-                })
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 330,
-                    y: cell.y + 100,
-                    fill: cell.lb
-                })
-            svg.append('rect')
-                .attr({
-                    width: resolution,
-                    height: resolution,
-                    x: cell.x + 550,
-                    y: cell.y + 100,
-                    fill: cell.ab
-                })
-
-        });
-    });
+//
+//    var resolution = 2;
+//    var matrix = d3.range(-100, 100, resolution).map(function (x) {
+//        return d3.range(-100, 100, resolution).map(function(y) {
+//            return {
+//                x: x,
+//                y: y,
+//                la: d3.lab((x+100)/2, y, 50),
+//                lb: d3.lab((x+100)/2, 50, y),
+//                ab: d3.lab(50, x, y),
+//            };
+//        });
+//    });
+//
+//    // Lab Color
+//    var svg = d3.select('body').append('svg')
+//        .attr({
+//            width: 650,
+//            height: 200
+//        });
+//    matrix.forEach(function(row) {
+//        row.forEach(function(cell) {
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 110,
+//                    y: cell.y + 100,
+//                    fill: cell.la
+//                })
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 330,
+//                    y: cell.y + 100,
+//                    fill: cell.lb
+//                })
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 550,
+//                    y: cell.y + 100,
+//                    fill: cell.ab
+//                })
+//
+//        });
+//    });
+//
+//    // Hue Saturation Lightness
+//    var matrix = d3.range(-100, 100, resolution).map(function (x) {
+//        return d3.range(-100, 100, resolution).map(function(y) {
+//            return {
+//                x: x,
+//                y: y,
+//                la: d3.hsl((x+100)/200 * 360, (y+100)/200, .5),
+//                lb: d3.hsl((x+100)/200 * 360, .5, (y+100)/200),
+//                ab: d3.hsl(0, (x+100)/200, (y+100)/200),
+//            };
+//        });
+//    });
+//
+//    var svg = d3.select('body').append('svg')
+//        .attr({
+//            width: 650,
+//            height: 200
+//        });
+//    matrix.forEach(function(row) {
+//        row.forEach(function(cell) {
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 110,
+//                    y: cell.y + 100,
+//                    fill: cell.la
+//                })
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 330,
+//                    y: cell.y + 100,
+//                    fill: cell.lb
+//                })
+//            svg.append('rect')
+//                .attr({
+//                    width: resolution,
+//                    height: resolution,
+//                    x: cell.x + 550,
+//                    y: cell.y + 100,
+//                    fill: cell.ab
+//                })
+//
+//        });
+//    });
 }
 window.onload = initialize;
 

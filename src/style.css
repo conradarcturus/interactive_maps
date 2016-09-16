@@ -30,6 +30,8 @@ path {
     font-size: 0.5em;
     /*font-weight: bold;*/
     alignment-baseline: middle;
+    pointer-events: none;
+
 }
 /*.wheel-label-bright {
     fill: white;
