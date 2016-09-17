@@ -1,24 +1,7 @@
 {
-    "Africa": {
-        "Madagascar": {}
-    },
-    "America": {
-        "North-America": {
-            "Caribbean": {},
-            "Central-America": {},
-            "Arctic-America": {}
-        },
-        "South-America": {}
-    },
-    "Eurasia": {
-        "Europe": {},
-        "Asia": {}
-    },
+    "Africa": {},
+    "America": {},
+    "Eurasia": {},
     "Antarctica": {},
-    "Oceania": {
-        "Australia": {},
-        "Melanesia": {},
-        "Micronesia": {},
-        "Polynesia": {}
-    }
+    "Oceania": {}
 }
