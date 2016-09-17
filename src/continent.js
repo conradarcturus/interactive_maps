@@ -162,8 +162,8 @@ InteractiveMap.prototype = {
         this.wheel = new Wheel(this);
 
         // Load Data
-        d3.xml("data/land-geo.svg", this.loadVectorGraphImage.bind(this));
-        d3.json("data/land-hierarchy.json", this.loadHierarchyJson.bind(this));
+        d3.xml("data/continent-geo.svg", this.loadVectorGraphImage.bind(this));
+        d3.json("data/continent-hierarchy.json", this.loadHierarchyJson.bind(this));
     },
     loadVectorGraphImage: function(xml) {
         // Add map directly from SVG
@@ -249,8 +249,7 @@ InteractiveMap.prototype = {
             .style("stroke", "5")
             .on('mouseover', function (node) {
                 this.tooltip.setData({
-                        Landmass: node.name,
-                        "Greater Masses": node.ancestors
+                        Continent: node.name
                     });
                 this.tooltip.on();
 
