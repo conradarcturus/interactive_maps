@@ -1,0 +1,15 @@
+{
+  "World-Ocean": {
+    "Arctic": {},
+    "Atlantic": {},
+    "Indian": {},
+    "Pacific": {},
+    "Southern": {}
+  },
+  "Endorheic-Basin": {
+    "Africa": {},
+    "America": {},
+    "Australia": {},
+    "Eurasia": {}
+  }
+}

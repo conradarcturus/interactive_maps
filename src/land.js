@@ -73,7 +73,6 @@ Wheel.prototype = {
                 return 'wheel-label';
             }.bind(this))
             .attr("text-anchor", node => this.x(node.xm) > Math.PI ? "end" : "start")
-            // .attr("dy", ".2em")
             .attr("transform", function (d) {
                 var multiline = (d.name || "").split("-").length > 1;
                 var angle = this.x(d.xm) * 180 / Math.PI - 90;
@@ -82,7 +81,7 @@ Wheel.prototype = {
             }.bind(this))
             .on("mouseover", this.App.fillColor.bind(this.App, 'Lineage'))
             .on("mouseout", this.App.fillColor.bind(this.App, 'Wheel-Subtree'))
-            .on("click", this.click.bind(this));
+            .on("click", this.click.bind(this))
         textEnter.append("tspan")
             .attr('class', d => d.word2 ? 'wheel-label-word1' : null)
             .attr("x", 0)
@@ -136,7 +135,7 @@ Wheel.prototype = {
 };
 
 
-function InteractiveLanguageMap() {
+function InteractiveMap() {
     // Options
     this.COLOR_SCHEME = 'hue'; // hash, hue, hue-lab
     this.LABEL_COLOR = 'brightness'; // brightness, flat
@@ -157,14 +156,14 @@ function InteractiveLanguageMap() {
     this.geo_zones = undefined;
 }
 
-InteractiveLanguageMap.prototype = {
+InteractiveMap.prototype = {
     init: function() {
         this.tooltip.init();
         this.wheel = new Wheel(this);
 
         // Load Data
-        d3.xml("data/language-geo.svg", this.loadVectorGraphImage.bind(this));
-        d3.json("data/language-hierarchy.json", this.loadHierarchyJson.bind(this));
+        d3.xml("data/land-geo.svg", this.loadVectorGraphImage.bind(this));
+        d3.json("data/land-hierarchy.json", this.loadHierarchyJson.bind(this));
     },
     loadVectorGraphImage: function(xml) {
         // Add map directly from SVG
@@ -176,7 +175,6 @@ InteractiveLanguageMap.prototype = {
     },
     loadHierarchyJson: function(json) {
         this.hierarchy = json;
-        this.hierarchy.Uninhabited = {}; // tmp fix
         this.buildRegionTree();
 
         this.initializeRegions();
@@ -200,9 +198,9 @@ InteractiveLanguageMap.prototype = {
     },
     buildRegionTree: function() {
         var tree = {
-            name: 'Mothertongue',
+            name: 'Earth',
             ancestors: [],
-            children: treeArray(this.hierarchy, ['Mothertongue'])
+            children: treeArray(this.hierarchy, ['Earth'])
         };
         this.nodes_root = d3.hierarchy(tree)
             .sum(node => node.children.length ? 0 : 5.8 - node.depth); // Controls the width
@@ -251,8 +249,8 @@ InteractiveLanguageMap.prototype = {
             .style("stroke", "5")
             .on('mouseover', function (node) {
                 this.tooltip.setData({
-                        Language: node.name,
-                        Families: node.ancestors
+                        Landmass: node.name,
+                        "Greater Masses": node.ancestors
                     });
                 this.tooltip.on();
 
@@ -318,6 +316,7 @@ InteractiveLanguageMap.prototype = {
                     || a.ancestors.includes(this.wheel.root.name); // Descendent
         }
         
+        // TODO fix stale colors, cancel in-progress transitions
         this.wheel.wedges.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
             .style('fill-opacity', node => wheel_cmp(node, basis) ? 1.0 : 0.1);
@@ -330,8 +329,8 @@ InteractiveLanguageMap.prototype = {
 };
 
 function initialize() {
-    // Load Interactive Language Map App
-    App = new InteractiveLanguageMap();
+    // Load Interactive Map App
+    App = new InteractiveMap();
     App.init();
 }
 window.onload = initialize;
