@@ -1,7 +1,10 @@
 {
   "World-Ocean": {
     "Arctic": {},
-    "Atlantic": {},
+    "Atlantic": {
+      "Mediterranean": {},
+      "Caribbean": {}
+      },
     "Indian": {},
     "Pacific": {},
     "Southern": {}
@@ -10,6 +13,11 @@
     "Africa": {},
     "America": {},
     "Australia": {},
-    "Eurasia": {}
-  }
+    "Eurasia": {
+      "Caspian": {}
+    }
+  },
+  "Oceania": {},
+  "Antarctica": {},
+  "Under-Construction": {}
 }
