@@ -198,9 +198,9 @@ InteractiveMap.prototype = {
     },
     buildRegionTree: function() {
         var tree = {
-            name: 'Mothertongue',
+            name: 'Water',
             ancestors: [],
-            children: treeArray(this.hierarchy, ['Mothertongue'])
+            children: treeArray(this.hierarchy, ['Water'])
         };
         this.nodes_root = d3.hierarchy(tree)
             .sum(node => node.children.length ? 0 : 5.8 - node.depth); // Controls the width
