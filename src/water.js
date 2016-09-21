@@ -162,7 +162,7 @@ InteractiveMap.prototype = {
         this.wheel = new Wheel(this);
 
         // Load Data
-        d3.xml("data/water-geo_addingoceans.svg", this.loadVectorGraphImage.bind(this));
+        d3.xml("data/water-geo.svg", this.loadVectorGraphImage.bind(this));
         d3.json("data/water-hierarchy.json", this.loadHierarchyJson.bind(this));
     },
     loadVectorGraphImage: function(xml) {
