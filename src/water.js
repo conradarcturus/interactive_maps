@@ -229,7 +229,17 @@ InteractiveMap.prototype = {
                                     sat_diff * (Math.abs(e - 0.5) * 400 - 100),  // Red/Cyan
                                     sat_diff * (Math.abs(Math.abs(e - 0.25) - 0.5) * 400 - 100)); // Yellow/Blue
             });
-        } 
+        } else { // Hash, not perfect
+            leaves.forEach((node, i) => {
+                node.color = str2rgb(node.data.name || "");
+                console.log(node.data.name, node.color);
+
+                // correct for darkness
+                node.color = d3.lab(node.color);
+                node.color.l = node.color.l * 0.5 + 50;
+                console.log(node.color);
+            });
+        }
 
         // Add a few variables that will help further functions
         this.nodes_arr.forEach(function(node) {

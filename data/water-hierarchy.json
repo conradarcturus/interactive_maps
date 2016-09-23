@@ -2,18 +2,13 @@
   "World-Ocean": {
     "Arctic": {},
     "Atlantic": {
-      "Mediterranean": {},
-      "Caribbean": {}
+      "Caribbean": {},
+      "Mediterranean": {}
       },
     "Indian": {},
     "Pacific": {},
     "Southern": {}
   },
-  "Endorheic-Basin": {
-    "Eurasia": {},
-    "Africa": {},
-    "America": {},
-    "Australia": {}
-  },
+  "Endorheic-Basin": {},
   "Multiple": {}
 }
