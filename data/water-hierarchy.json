@@ -1,13 +1,21 @@
 {
-  "World-Ocean": {
-    "Arctic": {},
-    "Atlantic": {
-      "Caribbean": {},
-      "Mediterranean": {}
-      },
-    "Indian": {},
-    "Pacific": {},
-    "Southern": {}
+  "Arctic": {
   },
-  "Endorheic-Basin": {}
+  "Atlantic": {
+    "Caribbean": {},
+    "Mediterranean": {
+      "Black": {},
+      "Nile": {}
+    },
+    "Niger": {},
+    "Congo": {}
+  },
+  "Indian": {
+    "Zambezi": {}
+  },
+  "Pacific": {},
+  "Southern": {},
+  "Endorheic-Basin": {
+    "Chad": {}
+  }
 }
