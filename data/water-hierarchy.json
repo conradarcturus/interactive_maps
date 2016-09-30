@@ -2,7 +2,9 @@
   "Arctic": {
   },
   "Atlantic": {
-    "Caribbean": {},
+    "Caribbean": {
+      "Mississippi": {}
+      },
     "Orinoco": {},
     "Amazon": {},
     "Parana": {},
@@ -14,11 +16,18 @@
     }
   },
   "Indian": {
-    "Zambezi": {}
+    "Zambezi": {},
+    "Red-Sea":{},
+    "Tigris-Euphrates": {},
+    "Indus": {},
+    "Ganges": {},
+    "Brahmaputra": {},
+    "Murray-Darling": {}
   },
   "Pacific": {},
   "Southern": {},
   "Endorheic-Basin": {
+    "Caspian": {},
     "Chad": {}
   }
 }

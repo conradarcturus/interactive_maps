@@ -30,14 +30,16 @@
 <body>
     <div class='container'>
         <div class="row">
-            <h2>Water Basin Map</h2>
-            <h4>by A. Conrad Nied</h4>
-            <p>Scroll over countries/basins to highlight the specific water basin.<br/>
-                Click on the water wheel to zoom in on a subbasin.</p>
+            <div class="col-sm-4">
+                <h2>Water Basin Map</h2>
+                <h4>by A. Conrad Nied</h4>
+                <p>Scroll over countries/basins to highlight the specific water basin.<br/>
+                    Click on the water wheel to zoom in on a subbasin.</p>
+            </div>
+            <div id='wheel-container' class="col-sm-4"></div>
         </div>
         <div class="row">
-            <div id='wheel-container' class="col-sm-4"></div>
-            <div id='map-container' class="col-sm-8"></div>
+            <div id='map-container'></div>
         </div>
     </div>
 </body>

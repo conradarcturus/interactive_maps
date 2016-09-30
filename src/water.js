@@ -3,7 +3,7 @@ function Wheel(App) {
     this.App = App;
 
     // Parameters
-    this.width = 400;
+    this.width = 300;
     this.height = this.width;
     this.radius = this.width / 2;
     this.padding = 5;
