@@ -329,10 +329,12 @@ InteractiveMap.prototype = {
         // TODO fix stale colors, cancel in-progress transitions
         this.wheel.wedges.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
+            .style('stroke-opacity', node => wheel_cmp(node, basis) ? 0.5 : 0.1)
             .style('fill-opacity', node => wheel_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
         this.geo_zones.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
+            .style('stroke-opacity', node => geo_cmp(node, basis) ? 0.5 : 0.1)
             .style('fill-opacity', node => geo_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
     },

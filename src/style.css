@@ -3,6 +3,9 @@ path {
     stroke-width: 1.5;
     cursor: pointer;
 }
+.zone {
+    stroke-opacity: 0.5;
+}
 
 .tooltip {
     position: fixed;
@@ -49,4 +52,8 @@ path {
 
 .Body-Of-Water {
     opacity: 0.5;
+}
+
+svg image {
+    display: none;
 }

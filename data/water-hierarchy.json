@@ -22,9 +22,15 @@
     "Indus": {},
     "Ganges": {},
     "Brahmaputra": {},
+    "Irrawaddy": {},
+    "Salween": {},
     "Murray-Darling": {}
   },
-  "Pacific": {},
+  "Pacific": {
+    "South-China": {
+      "Mekong": {}
+    }
+  },
   "Southern": {},
   "Endorheic-Basin": {
     "Caspian": {},
