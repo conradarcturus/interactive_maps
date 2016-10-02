@@ -28,8 +28,12 @@
   },
   "Pacific": {
     "South-China": {
-      "Mekong": {}
-    }
+      "Mekong": {},
+      "Pearl": {}
+    },
+    "Yangtze": {},
+    "Yellow": {},
+    "Amur": {}
   },
   "Southern": {},
   "Endorheic-Basin": {
