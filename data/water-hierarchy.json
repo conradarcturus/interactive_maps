@@ -5,8 +5,10 @@
     "Ob": {}
   },
   "Atlantic": {
+    "Saint-Lawrence": {},
     "Caribbean": {
-      "Mississippi": {}
+      "Mississippi": {},
+      "Rio-Grande": {}
       },
     "Orinoco": {},
     "Amazon": {},
@@ -37,7 +39,9 @@
     },
     "Yangtze": {},
     "Yellow": {},
-    "Amur": {}
+    "Amur": {},
+    "Columbia": {},
+    "Colorado": {}
   },
   "Southern": {},
   "Endorheic-Basin": {
