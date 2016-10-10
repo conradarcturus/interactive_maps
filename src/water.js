@@ -256,7 +256,7 @@ InteractiveMap.prototype = {
                 node.children.forEach(function(child, j) {
                     if(child.children == undefined) {
                         child.color = d3.lab(node.color); // clone
-                        child.color.l += (j % 2 - 0.5) * 20;
+                        child.color.l += (j % 2 - 0.5) * 20 + (j / 2 % 2 - 0.5) * 10;
                     }
                 });
             });
@@ -273,7 +273,7 @@ InteractiveMap.prototype = {
         // Color remaining nodes
         this.nodes_arr.forEach(function(node) {
             node.color = this.regionColor(node); 
-        })
+        }, this)
     },
     regionColor: function(node) {
         if (node.name == "Uninhabited")
