@@ -138,9 +138,10 @@ Wheel.prototype = {
 
 function InteractiveLanguageMap() {
     // Options
-    this.COLOR_SCHEME = 'hue'; // hash, hue, hue-lab
+    this.COLOR_SCHEME = 'hue-children'; // hash, hue[-children], hue-lab, hue-parents
     this.LABEL_COLOR = 'brightness'; // brightness, flat
     this.COLOR_CHANGE_DURATION = 250; // ms
+    this.ROOT_NAME = "Mothertongue";
 
     // Classes
     this.tooltip = new Tooltip();
@@ -200,38 +201,13 @@ InteractiveLanguageMap.prototype = {
     },
     buildRegionTree: function() {
         var tree = {
-            name: 'Mothertongue',
+            name: this.ROOT_NAME,
             ancestors: [],
-            children: treeArray(this.hierarchy, ['Mothertongue'])
+            children: treeArray(this.hierarchy, [this.ROOT_NAME])
         };
         this.nodes_root = d3.hierarchy(tree)
             .sum(node => node.children.length ? 0 : 5.8 - node.depth); // Controls the width
         this.nodes_arr = d3.partition()(this.nodes_root).descendants();
-
-        // Color leaf nodes
-        var leaves = this.nodes_arr.filter(node => node.children == undefined);
-        leaves.sort((a, b) => a.x0 - b.x0);
-
-        if(this.COLOR_SCHEME == 'hue') {
-            leaves.forEach((node, i) => {
-                node.color = d3.hsl(i * 360 / leaves.length, // Hue
-                                    i * 3.14 % 0.7 + 0.3,  // Saturation
-                                    i * 3.14 % 0.35 / 2 + 0.4); // Lightness
-
-                // correct for darkness
-                node.color = d3.lab(node.color);
-                node.color.l = node.color.l * 0.8 + 20;
-            });
-        } else if(this.COLOR_SCHEME == 'hue-lab') {
-            leaves.forEach((node, i) => {
-                var e = i / leaves.length;
-                var light_diff = Math.cos(e * 60 * Math.PI) * 15;
-                var sat_diff = 1; //(Math.cos(e * 60 * Math.PI) + 1) / 2 * 0.5 + 0.5;
-                node.color = d3.lab(light_diff + 70, // Lightness
-                                    sat_diff * (Math.abs(e - 0.5) * 400 - 100),  // Red/Cyan
-                                    sat_diff * (Math.abs(Math.abs(e - 0.25) - 0.5) * 400 - 100)); // Yellow/Blue
-            });
-        } 
 
         // Add a few variables that will help further functions
         this.nodes_arr.forEach(function(node) {
@@ -242,8 +218,9 @@ InteractiveLanguageMap.prototype = {
             node.word1 = node.name.split("-")[0];
             node.word2 = node.name.split("-")[1];
             node.xm = (node.x0 + node.x1) / 2;
-            node.color = this.regionColor(node); 
         }, this);
+
+        this.colorNodes();
     },
     setRegionInteraction: function() {
         this.geo_zones
@@ -268,24 +245,6 @@ InteractiveLanguageMap.prototype = {
             .selectAll("path")
                 .style({'stroke-width': '0.25'});
     },
-    regionColor: function(node) {
-        if (node.name == "Uninhabited")
-            return "#fff";
-        if (node.name == "Ocean")
-            return "#8080FF";
-
-        if(this.COLOR_SCHEME == 'hue' || this.COLOR_SCHEME == 'hue-lab') {
-            if (node.children) {
-                var colors = node.children.map(node => d3.lab(this.regionColor.apply(this, [node])));
-                return d3.lab(d3.mean(colors, color => color.l) * 1.1,
-                    d3.mean(colors, color => color.a),
-                    d3.mean(colors, color => color.b));
-            }
-        } else {
-            return str2rgb(node.name || "");
-        }
-        return node.color || "#fff";
-    },
     ancestryComparison: function(type) {
         // a = node, b = basis
         if(type == 'Node') {
@@ -303,6 +262,84 @@ InteractiveLanguageMap.prototype = {
             return (a, b) => true;
         }
     },
+    colorNodes: function() {
+        // Color leaf or parent nodes
+        var leaves = this.nodes_arr.filter(node => node.children == undefined);
+        leaves.sort((a, b) => a.x0 - b.x0);
+        var parents = this.nodes_arr.filter(node => node.children != undefined);
+        parents.sort((a, b) => (a.x1 + a.x0) - (b.x1 + b.x0) || a.x0 - b.x0);
+
+        if(this.COLOR_SCHEME == 'hue' || this.COLOR_SCHEME == 'hue-children') {
+            leaves.forEach(function(node, i) {
+                node.color = d3.hsl(i * 360 / leaves.length, // Hue
+                                    i * 3.14 % 0.7 + 0.3,  // Saturation
+                                    i * 3.14 % 0.35 / 2 + 0.4); // Lightness
+
+                // correct for darkness
+                node.color = d3.lab(node.color);
+                node.color.l = node.color.l * 0.8 + 20;
+            });
+        } else if(this.COLOR_SCHEME == 'hue-lab') {
+            leaves.forEach(function(node, i) {
+                var e = i / leaves.length;
+                var light_diff = Math.cos(e * 60 * Math.PI) * 15;
+                var sat_diff = 1; //(Math.cos(e * 60 * Math.PI) + 1) / 2 * 0.5 + 0.5;
+                node.color = d3.lab(light_diff + 70, // Lightness
+                                    sat_diff * (Math.abs(e - 0.5) * 400 - 100),  // Red/Cyan
+                                    sat_diff * (Math.abs(Math.abs(e - 0.25) - 0.5) * 400 - 100)); // Yellow/Blue
+            });
+        } else if (this.COLOR_SCHEME == 'hue-parents') {
+            parents.forEach(function(node, i) {
+                // Assign color based on hue
+                node.color = d3.hsl(i * 360 / parents.length, 0.5, 0.5);
+                node.color = d3.lab(node.color);
+                node.color.l = node.color.l * 0.8 + 20;
+
+                // Assign children's colors
+                node.children.forEach(function(child, j) {
+                    if(child.children == undefined) {
+                        child.color = d3.lab(node.color); // clone
+                        child.color.l += (j % 2 - 0.5) * 20 + (j / 2 % 2 - 0.5) * 10;
+                    }
+                });
+            });
+        } else { // Hash, not perfect
+            leaves.forEach(function(node, i) {
+                node.color = str2rgb(node.data.name || "");
+
+                // correct for darkness
+                node.color = d3.lab(node.color);
+                node.color.l = node.color.l * 0.5 + 50;
+            });
+        }
+
+        // Color remaining nodes
+        this.nodes_arr.forEach(function(node) {
+            node.color = this.regionColor(node); 
+        }, this)
+    },
+    regionColor: function(node) {
+        if (node.name == "Uninhabited")
+            return "#fff";
+        if (node.name == "Ocean")
+            return "#8080FF";
+
+        if(['hue', 'hue-children', 'hue-lab'].includes(this.COLOR_SCHEME)) {
+            if (node.children) {
+                var colors = node.children.map(node => d3.lab(this.regionColor.apply(this, [node])));
+                return d3.lab(d3.mean(colors, color => color.l) * 1.1,
+                    d3.mean(colors, color => color.a),
+                    d3.mean(colors, color => color.b));
+            }
+        } else if(['hue-parents'].includes(this.COLOR_SCHEME)) {
+            if(!node.children) { // is leaf, needs a color
+
+            }
+        } else {
+            return str2rgb(node.name || "");
+        }
+        return node.color || "#fff";
+    },
     fillColor: function(type, basis) {
         var wheel_cmp, geo_cmp;
         if(type == 'Focus') {
@@ -317,13 +354,15 @@ InteractiveLanguageMap.prototype = {
             geo_cmp = (a, b) => a.name == this.wheel.root.name // Self
                     || a.ancestors.includes(this.wheel.root.name); // Descendent
         }
-        
+
         this.wheel.wedges.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
+            .style('stroke-opacity', node => wheel_cmp(node, basis) ? 0.5 : 0.1)
             .style('fill-opacity', node => wheel_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
         this.geo_zones.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
+            .style('stroke-opacity', node => geo_cmp(node, basis) ? 0.5 : 0.1)
             .style('fill-opacity', node => geo_cmp(node, basis) ? 1.0 : 0.1);
             // .style('fill',         node => isDescendent(node, basis) ? basis.color : node.color);
     },

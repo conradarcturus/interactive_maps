@@ -140,6 +140,7 @@ function InteractiveMap() {
     this.COLOR_SCHEME = 'hue-parents'; // hash, hue[-children], hue-lab, hue-parents
     this.LABEL_COLOR = 'brightness'; // brightness, flat
     this.COLOR_CHANGE_DURATION = 250; // ms
+    this.ROOT_NAME = 'Water';
 
     // Classes
     this.tooltip = new Tooltip();
@@ -198,9 +199,9 @@ InteractiveMap.prototype = {
     },
     buildRegionTree: function() {
         var tree = {
-            name: 'Water',
+            name: this.ROOT_NAME,
             ancestors: [],
-            children: treeArray(this.hierarchy, ['Water'])
+            children: treeArray(this.hierarchy, [this.ROOT_NAME])
         };
         this.nodes_root = d3.hierarchy(tree)
             .sum(node => node.children.length ? 0 : 5.8 - node.depth); // Controls the width
@@ -352,7 +353,6 @@ InteractiveMap.prototype = {
                     || a.ancestors.includes(this.wheel.root.name); // Descendent
         }
         
-        // TODO fix stale colors, cancel in-progress transitions
         this.wheel.wedges.transition('color')
             .duration(this.COLOR_CHANGE_DURATION)
             .style('stroke-opacity', node => wheel_cmp(node, basis) ? 0.5 : 0.1)
